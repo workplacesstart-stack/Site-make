@@ -67,3 +67,23 @@ setInterval(function () {
     document.body.classList.add('devtools');
   }
 }, 1000);
+// ==== DEVTOOLS OVERLAY ====
+(function () {
+  const el = document.getElementById('devtools-overlay');
+
+  function check() {
+    const open =
+      window.outerWidth - window.innerWidth > 160 ||
+      window.outerHeight - window.innerHeight > 160;
+
+    if (open) {
+      el.style.display = 'flex';
+      document.body.style.userSelect = 'none';
+    } else {
+      el.style.display = 'none';
+      document.body.style.userSelect = 'auto';
+    }
+  }
+
+  setInterval(check, 1000);
+})();
