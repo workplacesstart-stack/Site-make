@@ -67,23 +67,28 @@ setInterval(function () {
     document.body.classList.add('devtools');
   }
 }, 1000);
-// ==== DEVTOOLS OVERLAY ====
-(function () {
-  const el = document.getElementById('devtools-overlay');
+// ==== DEVTOOLS OVERLAY (SAFE) ====
+window.addEventListener('DOMContentLoaded', function () {
+  const overlay = document.getElementById('devtools-overlay');
 
-  function check() {
-    const open =
+  if (!overlay) {
+    console.warn('DevTools overlay not found');
+    return;
+  }
+
+  function detect() {
+    const opened =
       window.outerWidth - window.innerWidth > 160 ||
       window.outerHeight - window.innerHeight > 160;
 
-    if (open) {
-      el.style.display = 'flex';
+    if (opened) {
+      overlay.style.display = 'flex';
       document.body.style.userSelect = 'none';
     } else {
-      el.style.display = 'none';
+      overlay.style.display = 'none';
       document.body.style.userSelect = 'auto';
     }
   }
 
-  setInterval(check, 1000);
-})();
+  setInterval(detect, 700);
+});
