@@ -546,3 +546,7 @@ h2 {
   position: absolute;
   left: -9999px;
 }
+.devtools * {
+  filter: blur(0.8px);
+}
+
