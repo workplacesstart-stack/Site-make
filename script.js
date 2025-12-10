@@ -1,3 +1,15 @@
+/* ==== JS PROTECT LAYER ==== */
+(function(){
+  const _lock = ['log','warn','info','error'];
+
+  _lock.forEach(function(method){
+    const original = console[method];
+    console[method] = function(){
+      return null;
+    };
+  });
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
   const observerOptions = {
     threshold: 0.1,
@@ -46,3 +58,12 @@ document.head.insertAdjacentHTML('beforeend', `
     }
   </style>
 `);
+// ==== JS PROTECT DEVTOOLS SOFT ====
+setInterval(function () {
+  if (
+    window.outerWidth - window.innerWidth > 160 ||
+    window.outerHeight - window.innerHeight > 160
+  ) {
+    document.body.classList.add('devtools');
+  }
+}, 1000);
