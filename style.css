@@ -15,6 +15,20 @@ body {
   line-height: 1.6;
 }
 
+.seo-text {
+  padding: 80px 0;
+  background: #0a0a0f;
+}
+
+.seo-text p {
+  max-width: 820px;
+  margin: 0 auto 20px;
+  text-align: center;
+  color: #a0a0a0;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -524,4 +538,11 @@ h2 {
   .trust-number {
     font-size: 2.5rem;
   }
+}
+/* ===== CSS PROTECT LAYER ===== */
+._x1a9b, ._z9k2p, ._k4m2x, ._q8v7n, ._r5t3y {
+  pointer-events: none;
+  visibility: hidden;
+  position: absolute;
+  left: -9999px;
 }
