@@ -46,3 +46,13 @@ document.head.insertAdjacentHTML('beforeend', `
     }
   </style>
 `);
+// Anti DevTools (базовый, безопасный)
+document.addEventListener('keydown', function(e) {
+  if (
+    e.key === 'F12' ||
+    (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) ||
+    (e.ctrlKey && e.key === 'U')
+  ) {
+    e.preventDefault();
+  }
+});
